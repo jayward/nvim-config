@@ -33,5 +33,7 @@ vim.opt.wrap = false
 vim.opt.backspace = 'indent,eol,start'
 vim.opt.mouse = 'a'
 
+-- fzf
+vim.opt.rtp:prepend('/etc/profiles/per-user/jayward/bin/fzf')
 
 vim.keymap.set('n', '<leader>w', '<cmd>write<cr>')
