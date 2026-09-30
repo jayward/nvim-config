@@ -9,6 +9,7 @@ return {
     config = function()
         local telescope = require("telescope")
         local actions = require("telescope.actions")
+        local builtin = require("telescope.builtin")
 
         telescope.setup ({
             defaults = {
@@ -38,7 +39,6 @@ return {
         local keymap = vim.keymap
 
         keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
-        keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
         keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
         keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
         keymap.set("n", "<leader>fc", "<cmd>Telescope commands<cr>")
@@ -46,6 +46,21 @@ return {
         keymap.set("n", "<leader>fl", "<cmd>Telescope loclist<cr>")
         keymap.set("n", "<leader>fq", "<cmd>Telescope quickfix<cr>")
         keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>")
+        keymap.set("n", "<leader>fb", function()
+            builtin.buffers({ sort_mru = true, ignore_current_buffer = true})
+        end, { desc = "Telescope MRU Buffers" })
+        keymap.set("n", "<leader>fv", function()
+            builtin.find_files {
+                cwd = vim.fn.stdpath("config")
+            }
+        end, { desc = "Telescope Neovim config files" })
+        keymap.set("n", "<leader>fp", function()
+            builtin.find_files {
+                cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy")
+            }
+        end, { desc = "Lazyvim Plugin Files" })
 
     end,
 }
+
+

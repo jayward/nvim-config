@@ -12,6 +12,9 @@ return {
   ---@type neotree.Config?
   opts = {
     -- fill any relevant options here
+    filesystem = {
+        bind_to_cwd = false,    -- don't CWD when opening new directories
+    },
     window = {
         mappings = {
             ["P"] = {

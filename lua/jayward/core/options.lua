@@ -2,7 +2,7 @@ vim.cmd("let g:netrw_liststyle = 3")
 
 -- line numbers
 vim.opt.number = true
-vim.opt.relativenumber = true
+-- vim.opt.relativenumber = true
 
 -- tabs and indentation
 vim.opt.tabstop = 4
@@ -23,6 +23,8 @@ vim.signcolumn = 'yes'
 
 -- clipboard
 vim.opt.clipboard = 'unnamedplus' -- use system clipboard as default register
+vim.g.clipboard = 'osc52'           -- enables copy on remote systems
+
 
 -- split windows
 vim.opt.splitbelow = true -- split horizontal window below
@@ -34,6 +36,6 @@ vim.opt.backspace = 'indent,eol,start'
 vim.opt.mouse = 'a'
 
 -- fzf
-vim.opt.rtp:prepend('/etc/profiles/per-user/jayward/bin/fzf')
+vim.opt.rtp:prepend('/opt/homebrew/bin/fzf')
 
 vim.keymap.set('n', '<leader>w', '<cmd>write<cr>')
